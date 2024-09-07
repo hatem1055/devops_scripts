@@ -58,6 +58,19 @@ sudo touch /etc/odoo17.conf
    db_password = False
    addons_path = /opt/odoo17/odoo/odoo/addons
    logfile = /var/log/odoo/odoo17.log
+   proxy_mode=True
+workers = 5
+max_cron_threads = 4
+xmlrpc = True
+xmlrpc_port = 8069
+db_maxconn = 64
+longpolling_port = 8089
+limit_memory_hard = 50000000000
+limit_memory_soft = 30000000000
+limit_request = 10000000
+limit_time_cpu = 1800000
+limit_time_real = 1800000
+
 
 EOM
 sudo mkdir -p /var/log/odoo
@@ -81,4 +94,4 @@ EOM
 sudo systemctl daemon-reload
 systemctl start odoo17
 systemctl restart odoo17
-
+echo "If there is any issues try removing proxyy_mode=True from /etc/odoo17.conf"

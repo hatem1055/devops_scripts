@@ -54,3 +54,6 @@ sudo touch odoo.log
 sudo chmod 777 -R /var/log/odoo
 docker run -d -v /data/db:/var/lib/postgresql/data -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres --name db postgres:15
 sudo docker run -v /etc/odoo:/etc/odoo -v /opt/custom_addons:/mnt/extra-addons -v /data/filestore:/var/lib/odoo -v /var/log/odoo:/var/log/odoo -p 8069:8069 --name odoo --link db:db -t odoo
+# db connections
+# sudo docker exec -it --user postgres <postgres_container_id> bash
+# psql -U <db_username> -d <db_name>
